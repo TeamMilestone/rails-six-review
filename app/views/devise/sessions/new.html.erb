@@ -1,49 +1,34 @@
-<section class="hero is-fullheight is-light-grey is-bold black-letter">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column is-4 is-offset-4">
-          <div id="material" class="login-form-wrapper">
-              <!-- Material login form -->
-              <div id="material-login-form" class="animated preFadeInLeft fadeInLeft">
-                  <div class="flex-card auth-card is-light-raised light-bordered card-overflow">
-                      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                      <%= render partial: 'devise/shared/error_messages', resource: resource %>
-                        <div class="control-material is-black">
-                            <%= f.text_field :email, class: "material-input", required: "" %>
-                            <span class="material-highlight"></span>
-                            <span class="bar"></span>
-                            <%= f.label :email %>
-                        </div>
-                        <div class="control-material is-black">
-                            <input class="material-input" type="password" required="" name="user[password]">
-                            <span class="material-highlight"></span>
-                            <span class="bar"></span>
-                            <label>비밀번호</label>
-                        </div>
-                        <p class="has-text-left mt-30">
-                            <%= link_to '아직 계정이 없으세요?', new_user_registration_path, class: 'no-account' %>
-                        </p>
-                        <div class="mt-20">
-                            <%= f.submit "로그인", class: 'button button-cta btn-align is-fullwidth btn-outlined is-bold rounded raised no-lh is-black-background', id: "sign_in_button" %>
-                        </div>
-                      <% end %>
-                      <div class="mt-20">
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h2 class="ui teal image header">            
+            <div class="content">
+                Log-in to your account
+            </div>
+        </h2>
+        
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "ui large form" } ) do |f| %>
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <%= f.text_field :email, class: "material-input", required: "" %>                            
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <%= f.password_field :password %>
+                    </div>
+                </div>
+                <%= f.submit 'Login', class: "ui fluid large teal submit button" %>                
+            </div>
 
-                      </div>
-                  </div>
+            <div class="ui error message"></div>
 
-              </div>
-              <!-- /Material login form -->
+            <% end %>
 
-              <!-- Material recover form -->
-              <div id="material-recover-form" class="animated preFadeInLeft fadeInLeft is-hidden">
-
-              </div>
-              <!-- /Material recover form -->
-          </div>
-        </div>
-      </div>
+                <div class="ui message">
+                    <%= link_to '아직 계정이 없으세요?', new_user_registration_path, class: 'no-account' %>
+                </div>
     </div>
-  </div>
-</section>
+</div>

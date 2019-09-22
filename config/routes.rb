@@ -1,9 +1,12 @@
 Rails.application.routes.draw do  
+  get 'dashboard/index'
   devise_for :users
   resources :users
-
-  draw_routes :admin
-
+  
+  scope :admin do
+    extend AdminRoutes
+  end
+  
   get 'welcome/index'
   root 'welcome#index'
 end
