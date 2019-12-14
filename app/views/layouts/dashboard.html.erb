@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MarketAnt</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'dashboard', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <header>
+      <%= link_to 'dashboard home', admin_root_path %>
+      <% if staff_user_signed_in? || user_signed_in? %>
+        <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
+      <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>
