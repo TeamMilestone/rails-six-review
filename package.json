@@ -12,6 +12,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "gulp": "3.9.1",
+    "diff": ">=3.5.0",
     "webpack-dev-server": "^3.8.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
