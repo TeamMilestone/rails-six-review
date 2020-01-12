@@ -1,0 +1,17 @@
+<div id="top-vertical-menu" class="ui left vertical inverted labeled icon sidebar menu  visible">  
+  <%= link_to 'dashboard home', admin_root_path, class: 'active item' %>
+  <% if staff_user_signed_in? || user_signed_in? %>
+    <%= link_to '로그아웃', destroy_user_session_path, class: 'item', method: :delete %>
+  <% end %>  
+  <div class="ui dropdown item">
+    <i class="dropdown icon"></i>
+      다른 메뉴
+    <div class="menu">
+      <div class="header">Text Size</div>
+      <a class="item">Small</a>
+      <a class="item">Medium</a>
+      <a class="item">Large</a>
+    </div>
+  </div>
+</div>
+

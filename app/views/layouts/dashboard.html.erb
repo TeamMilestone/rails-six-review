@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MarketAnt</title>
+    <title>관리자</title>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, minimal-ui, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'dashboard', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <header>
-      <%= link_to 'dashboard home', admin_root_path %>
-      <% if staff_user_signed_in? || user_signed_in? %>
-        <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
-      <% end %>
-    </header>
-    <%= yield %>
+  <body>    
+    <%= render 'vertical_menu' %>
+    <div class="pusher">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>      
+      <%= yield %>
+    </div>
   </body>
 </html>
