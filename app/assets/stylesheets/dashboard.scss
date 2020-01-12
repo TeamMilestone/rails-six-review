@@ -14,7 +14,12 @@
  *= require_self
  */
 
-@import 'semantic-ui/dist/semantic';
+@import "semantic-ui";
 body {
   color: green;
+}
+
+.ui.visible.left.sidebar~.pusher {
+  -webkit-transform: translate3d(140px, 0, 0);
+  transform: translate3d(140px, 0, 0);
 }
