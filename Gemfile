@@ -22,6 +22,7 @@ gem 'redis', '~> 4.1.3'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "devise", ">= 4.7.1"
 gem 'simple_form'
+gem 'semantic-ui-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
