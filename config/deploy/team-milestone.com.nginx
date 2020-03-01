@@ -1,0 +1,42 @@
+upstream rails-six-review {
+        server unix:/home/ubuntu/rails-six-review/shared/tmp/sockets/puma.sock fail_timeout=0;
+}
+
+server{
+        listen 80;
+        root /home/ubuntu/rails-six-review/current/public;
+        server_name rails.six;
+        try_files $uri/index.html $uri @rails-six-review;
+        location / {
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header Host $host;
+          proxy_set_header X-Forwarded-Proto https;
+          proxy_set_header X-Forwarded-Protocol https;
+          proxy_redirect off;
+          proxy_http_version 1.1;
+          proxy_set_header Connection '';
+          proxy_pass http://rails-six-review;
+          keepalive_timeout 60;
+        }
+	location /jobs{
+		try_files $uri /jobs.html;
+	}
+	location /delivery-jobs{
+                try_files $uri /jobs.html;
+        }
+        location ~ ^/(.well-known|uploads|assets|images|packs|fonts|system)/|favicon.ico|robots.txt {
+          gzip_static on;
+          expires max;
+          add_header Cache-Control public;
+        }
+        location /cable {
+                proxy_pass http://rails-six-review;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+        }
+        error_page 500 502 503 504 /500.html;
+        client_max_body_size 4G;
+        keepalive_timeout 60;
+}
