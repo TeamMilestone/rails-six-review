@@ -10,17 +10,9 @@ gem "sass-rails", ">= 6"
 gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
-# Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.1.3"
 gem "sidekiq", "6.0.5"
 gem "sidekiq-cron"
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
 gem "devise", ">= 4.7.1"
 gem "simple_form"
@@ -48,6 +40,8 @@ group :development do
   gem "capistrano-bundler", require: false
   gem "capistrano3-puma", github: "seuros/capistrano-puma", require: false
   gem "capistrano-sidekiq", github: "rwojnarowski/capistrano-sidekiq"
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
