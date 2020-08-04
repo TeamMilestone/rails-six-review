@@ -10,7 +10,6 @@ gem "sass-rails", ">= 6"
 gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
-# Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.1.3"
 gem "sidekiq", "6.0.5"
 gem "sidekiq-cron"
@@ -42,6 +41,8 @@ group :development do
   gem "capistrano-bundler", require: false
   gem "capistrano3-puma", github: "seuros/capistrano-puma", require: false
   gem "capistrano-sidekiq", github: "rwojnarowski/capistrano-sidekiq"
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
