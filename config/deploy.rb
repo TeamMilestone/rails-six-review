@@ -6,7 +6,7 @@ repository = project_name
 project_name = Rails.application.credentials.project_name
 repository = Rails.application.credentials.repository
 
-lock "~> 3.12.0"
+lock "~> 3.14.0"
 
 set :application, "rails-six"
 set :repo_url, "git@github.com:#{repository}.git"
