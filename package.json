@@ -5,7 +5,7 @@
     "@rails/actioncable": "^6.0.2",
     "@rails/activestorage": "^6.0.2",
     "@rails/ujs": "^6.0.2",
-    "@rails/webpacker": "^4.0.7",
+    "@rails/webpacker": "^4.2.2",
     "jquery": "^3.5.0",
     "popper.js": "^1.16.0",
     "turbolinks": "^5.2.0",
@@ -16,7 +16,7 @@
   "devDependencies": {
     "diff": ">=3.5.0",
     "gulp": "3.9.1",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.11.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "main": "babel.config.js",
