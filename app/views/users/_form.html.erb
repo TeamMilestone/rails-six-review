@@ -1,0 +1,191 @@
+<% url, method = users_path, :post  %>
+<% url, method = user_path(@user), :put if action_name == 'edit' %>
+
+
+<%= form_for(@user, url: url) do |f| %>
+<table class="ui striped celled table">
+  <tbody>
+    
+      <tr>
+        <td class="two wide">
+          name
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :name %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          phone
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :phone %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          email
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :email %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          encrypted_password
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :encrypted_password %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          reset_password_token
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :reset_password_token %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          reset_password_sent_at
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :reset_password_sent_at %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          remember_created_at
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :remember_created_at %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          sign_in_count
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :sign_in_count %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          current_sign_in_at
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :current_sign_in_at %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          last_sign_in_at
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :last_sign_in_at %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          current_sign_in_ip
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :current_sign_in_ip %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          last_sign_in_ip
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :last_sign_in_ip %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          profile_img
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :profile_img %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          google_token
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :google_token %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          google_refresh_token
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :google_refresh_token %>
+          </div>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="two wide">
+          comments_count
+        </td>
+        <td>
+          <div class="ui input">
+            <%= f.text_field :comments_count %>
+          </div>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<span class="ui" style="float: right;">
+  <button class="ui button" type="submit">등록</button>
+</span>
+<% end %>

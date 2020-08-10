@@ -1,0 +1,17 @@
+<%% content_for :title, "<%= singular_model_name %> | PETNER" %>
+
+<div class="main" style="padding: 20px 10px 0px 10px;">
+  <div class="ui">
+    <h1 class="ui teal image header"><%= plural_model_name %></h1>
+    <span class="ui" style="float: right;">
+      <%%= link_to '<%= singular_model_name %> 추가', new_<%= underscore_model_name %>_path, class: "ui button" %>
+    </span>
+  </div>
+
+  <%%= render 'filter', counts: @counts %>
+
+  <%%= render '<%= plural_model_name %>', <%= plural_model_name %>: @<%= plural_model_name %> %>
+
+  <%%= paginate @<%= plural_model_name %> %>
+
+</div>

@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <div class="ui checkbox">
+      <input type="checkbox" class="userCheck" id="<%= user.id %>" value="<%= user.id %>">
+    </div>
+  </td>
+  <% @column_attributes.each do |column| %>
+    <td><%= user[column] %></td>
+  <% end %>
+  <td>
+    <%= link_to '보기', user_path(user.id), method: :get %>
+    <%= link_to '수정', edit_user_path(user.id), method: :get %>
+    <%= link_to '삭제', user_path(user.id), method: :delete %>
+  </td>
+</tr>
+
+<script type="text/javascript">
+  $('.ui.checkbox')
+    .checkbox()
+  ;
+</script>

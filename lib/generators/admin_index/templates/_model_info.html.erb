@@ -1,0 +1,11 @@
+<%% column_list = <%= column_names %> %>
+<table class="ui striped celled table">
+  <tbody>
+    <%% column_list.each do |column| %>
+      <tr>
+        <td class="three wide"><%%= t(column, scope: [:activerecord, :<%= plural_model_name %>]) %></td>
+        <td><%%= <%= singular_model_name %>[column] %></td>
+      </tr>
+    <%% end %>
+  </tbody>
+</table>

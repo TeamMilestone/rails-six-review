@@ -19,6 +19,8 @@ gem "devise", ">= 4.7.1"
 gem "simple_form"
 gem "semantic-ui-sass"
 gem "nokogiri"
+gem "ransack"
+gem "kaminari"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -42,8 +44,8 @@ group :development do
   gem "capistrano-bundler", require: false
   gem "capistrano3-puma", github: "seuros/capistrano-puma", require: false
   gem "capistrano-sidekiq", github: "rwojnarowski/capistrano-sidekiq"
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
+  gem "ed25519"
+  gem "bcrypt_pbkdf"
 end
 
 group :test do
