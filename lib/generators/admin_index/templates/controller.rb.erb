@@ -1,0 +1,63 @@
+class <%= camel_controller_name %>Controller < StaffsController
+  before_action :set_<%= singular_model_name %>, only: [:show, :edit, :update, :destroy]
+  before_action :load_comments, only: [:show]
+
+  def index
+    @<%= plural_model_name %> = <%= singular_model_name.camelize %>.all
+
+    @filter_attributes = %w(id)
+    @column_attributes = %w(id)
+
+    @q = @<%= plural_model_name %>.ransack(filter_column)
+
+    @<%= plural_model_name %> = @q.result.order("id desc")
+                      .page(params[:page]).per(30)
+  end
+
+  def new
+    @<%= singular_model_name %> = <%= singular_model_name.camelize %>.new
+  end
+
+  def create
+    @<%= singular_model_name %> = <%= singular_model_name.camelize %>.new(<%= singular_model_name %>_params)
+    @<%= singular_model_name %>.save
+
+    redirect_to <%= underscore_model_name %>s_path
+  end
+
+  def show
+    @comment = ActiveAdmin::Comment.new
+  end
+
+  def edit
+  end
+
+  def update
+    redirect_to <%= underscore_model_name %>s_path
+  end
+
+  def destroy
+    @<%= singular_model_name %>.destroy
+
+    redirect_to <%= underscore_model_name %>s_path
+  end
+
+  private
+    def set_<%= singular_model_name %>
+      @<%= singular_model_name %> = <%= singular_model_name.camelize %>.find params[:id]
+    end
+
+    def <%= singular_model_name %>_params
+      params.require(:<%= singular_model_name %>).permit(<%= column_symbols %>)
+    end
+
+    def filter_column
+      return {} if params[:q].nil?
+      params[:q]
+    end
+
+    def load_comments
+      set_<%= singular_model_name %>
+      @comments = ActiveAdmin::Comment.where(resource_type: "<%= singular_model_name.camelize %>", resource_id: @<%= singular_model_name %>.id).order("id asc")
+    end
+end

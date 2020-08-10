@@ -1,0 +1,26 @@
+<%% content_for :title, "<%= singular_model_name %> ##{@<%= singular_model_name %>.id} | PETNER" %>
+
+<div class="main ui container" style="margin-top: 30px; margin-bottom: 30px;">
+  <div class="ui breadcrumb">
+    <%%= link_to 'Admin', <%= file_path %>, method: :get, class: "section" %>
+    <i class="right angle icon divider"></i>
+    <div class="active section"><%= singular_model_name %></div>
+  </div>
+  
+  <br>
+
+  <h1 class="ui teal image header"><%= singular_model_name %> #<%%= @<%= singular_model_name %>.id %></h1>
+  <span class="ui teal image header" style="float: right;">
+    <%%= link_to '수정', edit_<%= underscore_model_name %>_path(@<%= singular_model_name %>.id), method: :get, class: "ui button" %>
+    <%%= link_to '삭제', <%= underscore_model_name %>_path(@<%= singular_model_name %>.id), method: :delete, class: "ui button" %>
+  </span>
+
+  <div class="ui divider"></div>
+
+  <div class="main ui">
+    <h3 class="ui header"><%= singular_model_name %> 상세보기</h3>
+    <%%= render '<%= singular_model_name %>_info', <%= singular_model_name %>: @<%= singular_model_name %> %>
+    <br>
+    <%%= render 'shared/comments' , comments: @comments, id: @<%= singular_model_name %>.id, createpath: "#{@<%= singular_model_name %>.id}/comments", model: "<%= singular_model_camel_name %>" %>
+  </div>
+</div>

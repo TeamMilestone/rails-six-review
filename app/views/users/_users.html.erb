@@ -1,0 +1,37 @@
+<div class="ui seven wide column" style="margin-bottom: 30px;">
+  <table class="ui celled table">
+    <thead>
+      <tr class="center aligned">
+        <th class="collapsing">
+          <div class="ui checkbox">
+            <input type="checkbox" id="checkAll">
+            <label for="checkAll"></label>
+          </div>
+        </th>
+        <% @column_attributes.each do |column| %>
+          <th><%= t(column, scope: [:activerecord, :users]) %></th>
+        <% end %>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% users.each do |user| %>
+      <%= render 'user', user: user %>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#checkAll').removeClass('hidden');
+  })
+
+  $(document).on('click', '#checkAll', function() {
+    if ($('#checkAll').prop('checked')) {
+      $('.userCheck').prop('checked', true);
+    } else {
+      $('.userCheck').prop('checked', false);
+    }
+  });
+</script>

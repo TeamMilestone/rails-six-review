@@ -1,0 +1,16 @@
+Description:
+    http://localhost:3000/staffs/users 기준으로 작성된
+    generator 입니다.
+
+Example:
+    rails g staffs_index staffs/users
+    이런식으로 생성하려면
+    User 테이블이 있어야 합니다.
+
+    명령어를 실행하면 staffs/users 폴더 안에 아래와 같이 파일들이 생성됩니다.
+    index.html.erb
+    _filter.html.erb
+    _users.html.erb
+    _user.html.erb
+    _user_info.html.erb
+    show.html.erb

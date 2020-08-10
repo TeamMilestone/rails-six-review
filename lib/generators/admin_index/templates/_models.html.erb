@@ -1,0 +1,37 @@
+<div class="ui seven wide column" style="margin-bottom: 30px;">
+  <table class="ui celled table">
+    <thead>
+      <tr class="center aligned">
+        <th class="collapsing">
+          <div class="ui checkbox">
+            <input type="checkbox" id="checkAll">
+            <label for="checkAll"></label>
+          </div>
+        </th>
+        <%% @column_attributes.each do |column| %>
+          <th><%%= t(column, scope: [:activerecord, :<%= plural_model_name %>]) %></th>
+        <%% end %>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <%% <%= plural_model_name %>.each do |<%= singular_model_name %>| %>
+      <%%= render '<%= singular_model_name %>', <%= singular_model_name %>: <%= singular_model_name %> %>
+    <%% end %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#checkAll').removeClass('hidden');
+  })
+
+  $(document).on('click', '#checkAll', function() {
+    if ($('#checkAll').prop('checked')) {
+      $('.<%= singular_model_camel_name.camelize(:lower) %>Check').prop('checked', true);
+    } else {
+      $('.<%= singular_model_camel_name.camelize(:lower) %>Check').prop('checked', false);
+    }
+  });
+</script>

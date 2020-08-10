@@ -1,20 +1,17 @@
-<div class="main ui container">
-  <table class="ui purple table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>이름</th>
-        <th>email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<% content_for :title, "user | PETNER" %>
+
+<div class="main" style="padding: 20px 10px 0px 10px;">
+  <div class="ui">
+    <h1 class="ui teal image header">users</h1>
+    <span class="ui" style="float: right;">
+      <%= link_to 'user 추가', new_user_path, class: "ui button" %>
+    </span>
+  </div>
+
+  <%= render 'filter', counts: @counts %>
+
+  <%= render 'users', users: @users %>
+
+  <%= paginate @users %>
+
 </div>

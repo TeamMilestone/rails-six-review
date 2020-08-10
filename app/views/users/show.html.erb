@@ -1,0 +1,26 @@
+<% content_for :title, "user ##{@user.id} | PETNER" %>
+
+<div class="main ui container" style="margin-top: 30px; margin-bottom: 30px;">
+  <div class="ui breadcrumb">
+    <%= link_to 'Admin', users_path, method: :get, class: "section" %>
+    <i class="right angle icon divider"></i>
+    <div class="active section">user</div>
+  </div>
+  
+  <br>
+
+  <h1 class="ui teal image header">user #<%= @user.id %></h1>
+  <span class="ui teal image header" style="float: right;">
+    <%= link_to '수정', edit_user_path(@user.id), method: :get, class: "ui button" %>
+    <%= link_to '삭제', user_path(@user.id), method: :delete, class: "ui button" %>
+  </span>
+
+  <div class="ui divider"></div>
+
+  <div class="main ui">
+    <h3 class="ui header">user 상세보기</h3>
+    <%= render 'user_info', user: @user %>
+    <br>
+    <%= render 'shared/comments' , comments: @comments, id: @user.id, createpath: "#{@user.id}/comments", model: "User" %>
+  </div>
+</div>

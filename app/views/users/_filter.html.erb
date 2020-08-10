@@ -1,0 +1,37 @@
+<div class="ui filters" style="margin-bottom: 20px; background-color: white;">
+  <%= search_form_for(@q, url: users_path, method: :get, class: "ui form", style: "padding-bottom: 10px;") do |f| %>
+    <div class="field is-horizontal">
+      <h3 class="ui dividing header">필터 목록</h3>
+      <div class="fields">
+        <% @filter_attributes.each do |filter| %>  
+          <div class="field list-filter">
+            <label class="label"><%= t(filter, scope: [:activerecord, :users]) %></label>
+            <div class="ui input">
+              <%= f.text_field "#{filter}_eq".to_sym, value: "#{params.dig('q', "#{filter}_eq".to_sym).presence || ''}", class: "input is-medium", placeholder: "#{t(filter, scope: [:activerecord, :users])}" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="fields">
+        <div class="field">
+          <%= f.submit '필터', class: "ui blue fluid button" %>
+        </div>
+        <div class="field">
+          <%= link_to '필터 초기화', users_path, class: "ui grey fluid button" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- 배치 작업 -->
+    <div class="field is-horizontal" style="margin-bottom: 20px;">
+      <div class="fields list-filter">
+        <div class="field six wide">
+          <%= select_tag 'user[status]', options_for_select(['배치 작업', *%w()], selected: "#{params.dig('user', :status).presence || ''}"), class: "ui selection dropdown" %>
+        </div>
+      </div>
+    </div>
+    <!-- /배치 작업 -->
+  <% end %>
+
+</div>
