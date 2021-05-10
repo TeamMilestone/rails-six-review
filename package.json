@@ -10,7 +10,7 @@
     "popper.js": "^1.16.0",
     "turbolinks": "^5.2.0",
     "elliptic": "^6.5.4",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.21"
   },
   "version": "0.1.0",
   "devDependencies": {
